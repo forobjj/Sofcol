@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 
-const url = 'mongodb+srv://user:SofCol.C4@cluster0.27qgu.mongodb.net/Gestion-de-proyectos?retryWrites=true&w=majority'
+const url = 'mongodb+srv://admin:admin123@cluster0.27qgu.mongodb.net/Gestion-de-proyectos?retryWrites=true&w=majority'
+//cone
 
 //cone
 
