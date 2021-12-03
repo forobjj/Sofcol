@@ -1,2 +1,2 @@
-# Sofcol
-Proyecto MinTic Ciclo 4
+# sport-team
+Tienda de calzado del futuro
