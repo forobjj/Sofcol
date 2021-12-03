@@ -13,9 +13,9 @@ const cards = [
   },
   {
     id: 2,
-    title: "Gestion Vendedores",
+    title: "Gestion Usuarios",
     image: users,
-    text: "En esta ventana se podrán administrar los Vendedores registrados en la página, tanto su información como su rol en la página.",
+    text: "En esta ventana se podrán administrar los Usuarios registrados en la página, tanto su información como su rol en la página.",
   },
   {
     id: 3,
