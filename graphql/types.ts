@@ -2,6 +2,8 @@ import { gql } from "apollo-server-core";
 
 const typeDefs = gql `
 
+scalar Date
+
 type Usuario {
     _id: ID!
     nombre: String!
@@ -10,8 +12,23 @@ type Usuario {
     correo: String!
     _cedula: String! 
 }
+
+type Proyecto{
+    _id: ID!
+    nombre: String!
+    objetivosGenerales: String!
+    objetivosEspecificos: String!
+    presupuesto: Float!
+    fechaInicio: Date!
+    fechaFin: Date!
+    lider: Usuario!
+    estado: String!
+    fase: String!
+}
+
 type Query {
-    Buscar: [Usuario]
+    buscarUsuarios: [Usuario]
+    buscarProyectos: [Proyecto]
 }
 
 type Mutation{
@@ -37,6 +54,38 @@ type Mutation{
         correo: String
         _cedula: String
     ):Usuario
+
+
+
+    crearProyecto(
+        nombre: String!
+        objetivosGenerales: String!
+        objetivosEspecificos: String!
+        presupuesto: Float!
+        fechaInicio: Date!
+        fechaFin: Date!
+        lider: String!
+        estado: String!
+        fase: String!
+    ):Proyecto
+
+    editarProyecto(
+        _id: ID!
+        nombre: String!
+        objetivosGenerales: String!
+        objetivosEspecificos: String!
+        presupuesto: Float!
+        fechaInicio: Date!
+        fechaFin: Date!
+        lider: String!
+        estado: String!
+        fase: String!
+    ):Proyecto
+
+    eliminarProyecto(
+        _id: String
+        nombre: String
+    ):Proyecto
 }
 `
 

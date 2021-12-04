@@ -25,11 +25,7 @@ const proyectosSchema = new Schema({
       type: Date,
       require: true,
   },
-  nombreLider: {
-      type: String,
-      require: true,
-  },
-  cedulaLider: {
+  lider: {
       type: String,
       require: true,
   },

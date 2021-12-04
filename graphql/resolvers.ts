@@ -1,10 +1,16 @@
+import { ProyectosModel } from "../models/proyectos";
 import { UsuarioModel } from "../models/usuarios";
 
 const resolvers = {
     Query:{
-        Buscar: async (parent, args) => {
+        buscarUsuarios: async (parent, args) => {
             const usuarios = await UsuarioModel.find() 
             return usuarios;
+        },
+
+        buscarProyectos: async (parent, args) => {
+            const proyectos = await ProyectosModel.find() 
+            return proyectos;
         }
 
     },
@@ -49,7 +55,45 @@ const resolvers = {
                 })
                 return usuarioEliminado;
             }
-            
+        },
+        
+        crearProyecto: async (parent, args) => {
+            const proyectoCreado = await ProyectosModel.create({
+                nombre: args.nombre,
+                objetivosGenerales: args.objetivosGenerales,
+                objetivosEspecificos: args.objetivosEspecificos,
+                presupuesto: args.presupuesto,
+                fechaInicio: args.fechaInicio,
+                fechaFin: args.fechaFin,
+                lider: args.lider,
+                estado: args.estado,
+                fase: args.fase
+                
+            })
+            return proyectoCreado;
+        },
+
+        editarProyecto: async (parent, args) => {
+            const proyectoEditado = await ProyectosModel.findByIdAndUpdate(args._id, {
+                _id: args._id,
+                nombre: args.nombre,
+                objetivosGenerales: args.objetivosGenerales,
+                objetivosEspecificos: args.objetivosEspecificos,
+                presupuesto: args.presupuesto,
+                fechaInicio: args.fechaInicio,
+                fechaFin: args.fechaFin,
+                lider: args.lider,
+                estado: args.estado,
+                fase: args.fase
+            })
+            return proyectoEditado;
+        },
+
+        eliminarProyecto: async (parent, args) => {
+            const proyectoEliminado = await ProyectosModel.findOneAndDelete({
+                _id: args._id
+            })
+            return proyectoEliminado;
         }
     }
 }
