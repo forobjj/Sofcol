@@ -1,3 +1,4 @@
+import { AvancesModel } from "../models/avances";
 import { ProyectosModel } from "../models/proyectos";
 import { UsuarioModel } from "../models/usuarios";
 
@@ -9,8 +10,15 @@ const resolvers = {
         },
 
         buscarProyectos: async (parent, args) => {
-            const proyectos = await ProyectosModel.find() 
+            const proyectos = await ProyectosModel.find()
+                
             return proyectos;
+        },
+
+        buscarAvances: async (parent, args) => {
+            const avances = await AvancesModel.find()
+                
+            return avances;
         }
 
     },
@@ -47,11 +55,6 @@ const resolvers = {
             }else if (Object.keys(args).includes('_cedula') ){
                 const usuarioEliminado = await UsuarioModel.findOneAndDelete({
                     _cedula: args._cedula
-                })
-                return usuarioEliminado;
-            }else if (Object.keys(args).includes('correo') ){
-                const usuarioEliminado = await UsuarioModel.findOneAndDelete({
-                    correo: args.correo
                 })
                 return usuarioEliminado;
             }
@@ -94,6 +97,35 @@ const resolvers = {
                 _id: args._id
             })
             return proyectoEliminado;
+        },
+
+        crearAvance: async (parent, args) => {
+            const avanceCreado = await AvancesModel.create({
+                idProyecto: args.idProyecto,
+                fecha: args.fecha,
+                descripcion: args.descripcion,
+                observaciones: args.observaciones
+                
+            })
+            return avanceCreado;
+        },
+
+        editarAvance: async (parent, args) => {
+            const avanceEditado = await AvancesModel.findByIdAndUpdate(args._id, {
+                _id: args._id,
+                idProyecto: args.idProyecto,
+                fecha: args.fecha,
+                descripcion: args.descripcion,
+                observaciones: args.observaciones
+            })
+            return avanceEditado;
+        },
+
+        eliminarAvance: async (parent, args) => {
+            const avanceEliminado = await AvancesModel.findOneAndDelete({
+                _id: args._id
+            })
+            return avanceEliminado;
         }
     }
 }

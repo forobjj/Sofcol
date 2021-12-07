@@ -21,14 +21,23 @@ type Proyecto{
     presupuesto: Float!
     fechaInicio: Date!
     fechaFin: Date!
-    lider: Usuario!
+    lider: String!
     estado: String!
     fase: String!
+}
+
+type Avance{
+    _id: ID!
+    idProyecto: String!
+    fecha: Date!
+    descripcion: String!
+    observaciones: String!
 }
 
 type Query {
     buscarUsuarios: [Usuario]
     buscarProyectos: [Proyecto]
+    buscarAvances: [Avance]
 }
 
 type Mutation{
@@ -51,7 +60,6 @@ type Mutation{
 
     eliminarUsuario(
         _id: String
-        correo: String
         _cedula: String
     ):Usuario
 
@@ -84,8 +92,29 @@ type Mutation{
 
     eliminarProyecto(
         _id: String
-        nombre: String
     ):Proyecto
+
+
+    
+
+    crearAvance(
+        idProyecto: String!
+        fecha: Date!
+        descripcion: String!
+        observaciones: String!
+    ):Avance
+
+    editarAvance(
+        _id: ID!
+        idProyecto: String!
+        fecha: Date!
+        descripcion: String!
+        observaciones: String!
+    ):Avance
+
+    eliminarAvance(
+        _id: String
+    ):Avance
 }
 `
 
