@@ -21,7 +21,7 @@ type Proyecto{
     presupuesto: Float!
     fechaInicio: Date!
     fechaFin: Date!
-    lider: String!
+    lider: Usuario!
     estado: String!
     fase: String!
 }

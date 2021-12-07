@@ -1,4 +1,5 @@
 import { SchemaTypes, model, Schema } from "mongoose";
+import { UsuarioModel } from "./usuarios";
 
 const proyectosSchema = new Schema({
   nombre: {
@@ -26,8 +27,9 @@ const proyectosSchema = new Schema({
       require: true,
   },
   lider: {
-      type: String,
+      type: Schema.Types.ObjectId,
       require: true,
+      ref: UsuarioModel,
   },
   estado: {
       type: String,

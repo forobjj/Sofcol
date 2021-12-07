@@ -10,7 +10,7 @@ const resolvers = {
         },
 
         buscarProyectos: async (parent, args) => {
-            const proyectos = await ProyectosModel.find()
+            const proyectos = await ProyectosModel.find().populate('lider')
                 
             return proyectos;
         },
