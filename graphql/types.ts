@@ -10,7 +10,8 @@ type Usuario {
     apellido: String!
     cargo: String!
     correo: String!
-    _cedula: String! 
+    _cedula: String!
+    estado:  String!
 }
 
 type Proyecto{
@@ -47,6 +48,7 @@ type Mutation{
         cargo: String!
         correo: String!
         _cedula: String!
+        estado:  String
     ):Usuario
     
     editarUsuario(
@@ -56,6 +58,7 @@ type Mutation{
         cargo: String!
         correo: String!
         _cedula: String!
+        estado:  String
     ):Usuario
 
     eliminarUsuario(

@@ -29,7 +29,8 @@ const resolvers = {
                 apellido: args.apellido,
                 cargo: args.cargo,
                 correo: args.correo,
-                _cedula: args._cedula
+                _cedula: args._cedula,
+                estado: args.estado,
                 
             })
             return usuarioCreado;
@@ -42,6 +43,7 @@ const resolvers = {
                 cargo: args.cargo,
                 _cedula: args._cedula,
                 correo: args.correo,
+                estado: args.estado,
             })
             return usuarioEditado;
         },

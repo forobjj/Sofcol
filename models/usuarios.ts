@@ -23,6 +23,11 @@ const UsuariosSchema = new Schema({
         require: true,
         unique:true,        
     },
+    estado: {
+        type:String,
+        enum: ['Pendiente', 'Autorizado', 'No Autorizado'],
+        default:'No Autorizado',
+    }
     
 
 });
