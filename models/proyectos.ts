@@ -5,6 +5,7 @@ const proyectosSchema = new Schema({
   nombre: {
     type: String,
     require: true,
+    unique: true,
   },
   objetivosGenerales: {
     type: String,

@@ -15,11 +15,13 @@ const UsuariosSchema = new Schema({
     },
     correo:{ 
         type: String,
-        require: true 
+        require: true,
+        unique:true,
     },
     _cedula :{
         type: String,
-        require: true        
+        require: true,
+        unique:true,        
     },
     
 
